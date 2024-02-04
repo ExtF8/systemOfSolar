@@ -41,7 +41,7 @@
     background-color: var(--sun-color);
     width: 200px;
     height: 200px;
-    position:absolute;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -110,6 +110,17 @@
 /* Shared properties */
 
 .celestial-body {
+    position: relative;
     border-radius: 50%;
-    /* margin-left: 50px; */
+
+}
+
+.body-name {
+    position: absolute;
+    top: 112%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
 }
