@@ -24,10 +24,11 @@
     /* Gray for Pluto */
 }
 
+
 #cosmos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(1px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(1px, 1fr));
 
     place-items: center;
     background-color: black;
@@ -37,20 +38,25 @@
 /* Apply properties to celestial bodies */
 /* Scaling factor of 1:10 (which means each celestial body will be approximately 1/10th the size of the Sun) */
 #sun {
-    display: grid;
     background-color: var(--sun-color);
     width: 200px;
     height: 200px;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    /* Add this line to center vertically */
+    transform: translate(-50%, -50%);
+
 }
 
 #mercury {
     background-color: var(--mercury-color);
-    width: 20px;
-    height: 20px;
-
+    width: 20px;  /* Adjust based on scaling factor */
+    height: 20px; /* Adjust based on scaling factor */
+    position: absolute;
+    left: calc(50% + 868px);  /* Adjust based on Mercury's initial x position */
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #venus {
