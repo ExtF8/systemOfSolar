@@ -1,0 +1,126 @@
+/* Color constants for celestial bodies */
+:root {
+    --sun-color: #ffeb3b;
+    /* Yellow for the Sun */
+    --mercury-color: #9e9e9e;
+    /* Gray for Mercury */
+    --venus-color: #ff9800;
+    /* Orange for Venus */
+    --earth-color: #2196f3;
+    /* Blue for Earth */
+    --moon-color: #bdbdbd;
+    /* Light Gray for the Moon */
+    --mars-color: #e57373;
+    /* Red for Mars */
+    --jupiter-color: #b89e84;
+    /* Yellow for Jupiter */
+    --saturn-color: #c7a200;
+    /* Gold for Saturn */
+    --uranus-color: #00bcd4;
+    /* Cyan for Uranus */
+    --neptune-color: #1976d2;
+    /* Dark Blue for Neptune */
+    --pluto-color: #9e9e9e;
+    /* Gray for Pluto */
+}
+
+#cosmos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+
+    place-items: center;
+    background-color: black;
+    height: 100vh;
+}
+
+/* Apply properties to celestial bodies */
+/* Scaling factor of 1:10 (which means each celestial body will be approximately 1/10th the size of the Sun) */
+#sun {
+    display: grid;
+    background-color: var(--sun-color);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#mercury {
+    background-color: var(--mercury-color);
+    width: 20px;
+    height: 20px;
+
+}
+
+#venus {
+    background-color: var(--venus-color);
+    width: 20px;
+    height: 20px;
+}
+
+#earth {
+    background-color: var(--earth-color);
+    width: 20px;
+    height: 20px;
+}
+
+#moon {
+    background-color: var(--moon-color);
+    width: 2px;
+    height: 2px;
+}
+
+#mars {
+    background-color: var(--mars-color);
+    width: 14px;
+    height: 14px;
+}
+
+#jupiter {
+    background-color: var(--jupiter-color);
+    width: 70px;
+    height: 70px;
+}
+
+#saturn {
+    background-color: var(--saturn-color);
+    width: 58.4px;
+    height: 58.4px;
+}
+
+#uranus {
+    background-color: var(--uranus-color);
+    width: 25.6px;
+    height: 25.6px;
+}
+
+#neptune {
+    background-color: var(--neptune-color);
+    width: 20px;
+    height: 20px;
+}
+
+#pluto {
+    background-color: var(--pluto-color);
+    width: 2px;
+    height: 2px;
+}
+
+/* Shared properties */
+
+.celestial-body {
+    position: relative;
+    border-radius: 50%;
+
+}
+
+.body-name {
+    position: absolute;
+    top: 112%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.5em;
+    text-align: center;
+}
