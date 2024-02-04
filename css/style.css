@@ -24,14 +24,20 @@
     /* Gray for Pluto */
 }
 
+body {
+    background-color: black;
+    scroll-behavior: smooth;
+    scale: 1;
+}
+
 #cosmos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(2px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(2px, 1fr));
 
     place-items: center;
-    background-color: black;
-    height: 100vh;
+    height: 600vh;
+    width: auto;
 }
 
 /* Apply properties to celestial bodies */
@@ -39,8 +45,7 @@
 #sun {
     display: grid;
     background-color: var(--sun-color);
-    width: 200px;
-    height: 200px;
+    width: 100px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -63,12 +68,17 @@
     background-color: var(--earth-color);
     width: 20px;
     height: 20px;
+
+
 }
 
 #moon {
     background-color: var(--moon-color);
     width: 2px;
     height: 2px;
+
+
+
 }
 
 #mars {
@@ -110,14 +120,15 @@
 /* Shared properties */
 
 .celestial-body {
-    position: relative;
+    /* position: relative; */
+    position: absolute;
     border-radius: 50%;
 
 }
 
 .body-name {
     position: absolute;
-    top: 112%;
+    top: 120%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
