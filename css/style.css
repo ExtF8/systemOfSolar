@@ -27,16 +27,34 @@
 body {
     background-color: black;
     scroll-behavior: smooth;
+    /* display: flex;
+    justify-content: center; */
+    /* align-items: center; */
+}
+
+#outerspace {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* height: 600vh;
+    width: 100%; */
+
+    z-index: -1;
 }
 
 #cosmos {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(2px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(2px, 1fr));
 
     place-items: center;
-    height: 600vh;
-    width: auto;
+    /* height: 600vh;
+    width: 100%; */
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 100000;
 }
 
 /* Apply properties to celestial bodies */
