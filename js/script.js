@@ -253,7 +253,7 @@ function updateCelestialBodiesPosition() {
     saturn.updatePosition(currentTime);
     uranus.updatePosition(currentTime);
     neptune.updatePosition(currentTime);
-    pluto.updatePosition(currentTime);
+    // pluto.updatePosition(currentTime);
 }
 
 // Update celestial bodies' positions periodically (e.g., every 100 milliseconds)
