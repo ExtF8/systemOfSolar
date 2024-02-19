@@ -27,7 +27,7 @@ class Star {
     this.counter = getRandomInt(1, canvasWidth);
 
     this.radiusMax = 1 + Math.random() * 2;
-    this.speed = getRandomInt(1, 3);
+    this.speed = getRandomInt(1, 1);
 
     this.context = mainContext;
   }
@@ -40,7 +40,7 @@ class Star {
       this.x = getRandomInt(-centerX, centerX);
       this.y = getRandomInt(-centerY, centerY);
 
-      this.radiusMax = getRandomInt(1, 2);
+      this.radiusMax = getRandomInt(1, 10);
       this.speed = getRandomInt(1, 3);
     }
 
