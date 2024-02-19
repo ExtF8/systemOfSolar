@@ -8,7 +8,7 @@
     /* Orange for Venus */
     --earth-color: #2196f3;
     /* Blue for Earth */
-    --moon-color: #bdbdbd;
+    --moon-color: #f2f2f2;
     /* Light Gray for the Moon */
     --mars-color: #e57373;
     /* Red for Mars */
@@ -29,25 +29,55 @@ body {
     scroll-behavior: smooth;
 }
 
+#container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#outerspace {
+    /* display: flex; */
+    position: absolute;
+    /* width: 100vw;*/
+    /* height: 100%; */
+    width: 100%;
+    /* top: 100%; */
+    /* left: 50%; */
+    z-index: -1;
+}
+
 #cosmos {
+    position: absolute;
+    /* display: flex; */
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(2px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(2px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(1px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(1px, 1fr));
 
     place-items: center;
-    height: 600vh;
-    width: auto;
+    vertical-align: middle;
+    /* align-self: center; */
+    top: 50%;
+    /* width: 100vw;*/
+    /* height: 500px; */
+    width: 100%;
+    /* height: 50vh; */
+    background-color: transparent;
+    z-index: 1;
 }
+
 
 /* Apply properties to celestial bodies */
 /* Scaling factor of 1:10 (which means each celestial body will be approximately 1/10th the size of the Sun) */
 #sun {
-    display: grid;
     background-color: var(--sun-color);
-    width: 100px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    border: none;
+    width: 200px;
+    height: 200px;
 }
 
 #mercury {
@@ -75,9 +105,6 @@ body {
     background-color: var(--moon-color);
     width: 2px;
     height: 2px;
-
-
-
 }
 
 #mars {
@@ -122,6 +149,7 @@ body {
     /* position: relative; */
     position: absolute;
     border-radius: 50%;
+    border: none;
 
 }
 
