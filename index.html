@@ -6,97 +6,13 @@
         <title>System Of Solar</title>
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/style.css" />
+        <script src="./js/script.js" defer></script>
+        <script src="./js/starfield.js" defer></script>
     </head>
     <body>
-        <div id="cosmos">
-            <div
-                class="celestial-body"
-                id="sun"
-                data-mass="1989000000"
-                data-radius="696340"
-            >
-                <p class="body-name">SUN</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="mercury"
-                data-mass="0.33"
-                data-radius="2439.7"
-            >
-                <p class="body-name">MERCURY</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="venus"
-                data-mass="4.87"
-                data-radius="6051.8"
-            >
-                <p class="body-name">VENUS</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="earth"
-                data-mass="5.97"
-                data-radius="6371"
-            >
-                <p class="body-name">EARTH</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="moon"
-                data-mass="0.0735"
-                data-radius="1737.4"
-            >
-                <p class="body-name">MOON</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="mars"
-                data-mass="0.64171"
-                data-radius="3389.5"
-            >
-                <p class="body-name">MARS</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="jupiter"
-                data-mass="1898"
-                data-radius="69911"
-            >
-                <p class="body-name">JUPITER</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="saturn"
-                data-mass="568"
-                data-radius="58232"
-            >
-                <p class="body-name">SATURN</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="uranus"
-                data-mass="86.8"
-                data-radius="25362"
-            >
-                <p class="body-name">URANUS</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="neptune"
-                data-mass="102"
-                data-radius="24622"
-            >
-                <p class="body-name">NEPTUNE</p>
-            </div>
-            <div
-                class="celestial-body"
-                id="pluto"
-                data-mass="0.01303"
-                data-radius="1188.3"
-            >
-                <p class="body-name">PLUTO</p>
-            </div>
+        <div id="container">
+            <canvas id="outerspace" width="5000px" height="5000px"> </canvas>
+            <div id="cosmos"></div>
         </div>
     </body>
 </html>
