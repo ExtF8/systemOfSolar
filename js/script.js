@@ -11,14 +11,14 @@ class CelestialBody {
         celestialElement.id = this.id;
         celestialElement.classList.add('celestial-body');
 
-        document.getElementById('cosmos').appendChild(celestialElement);
+        document.getElementById('system').appendChild(celestialElement);
 
         celestialElement.style.boxShadow = this.addShadowWithColor(this.id);
 
-        const bodyName = document.createElement('p');
-        bodyName.classList.add('body-name');
-        bodyName.textContent = this.name;
-        celestialElement.appendChild(bodyName);
+        // const bodyName = document.createElement('p');
+        // bodyName.classList.add('body-name');
+        // bodyName.textContent = this.name;
+        // celestialElement.appendChild(bodyName);
 
         return celestialElement;
     }
@@ -35,11 +35,17 @@ class CelestialBody {
 
         // Get the computed style of the element
         const computedStyle = window.getComputedStyle(element);
+        const computedWidth = window.getComputedStyle(element);
 
         // Extract the color property from the computed style
         const color = computedStyle.backgroundColor;
-
-        return `0px 0px 15px 5px ${color}`;
+        const width = computedWidth.width;
+        // 0px 0px 10px 2px, inset 0px 0px 10px 2px;
+        // return `0px 0px 15px 5px ${color}`;
+        return `0 0 ${width} 0 ${color},
+        inset -100px 10px 80px 20px ${color},
+        0 0 40px 10px ${color},
+        inset 0 0 100px 0 ${color}`;
     }
 
     updatePosition(time) {
@@ -72,14 +78,45 @@ class CelestialBody {
     }
 }
 
+// Function to calculate new position based on orbital parameters and time
+function calculateNewPosition(time, orbitalParameters) {
+    const { distance, orbitalPeriod } = orbitalParameters;
+
+    // Convert time to radians based on the orbital period
+    const theta = (2 * Math.PI * time) / orbitalPeriod;
+
+    // Calculate x and y coordinates based on polar coordinates
+    const x = distance * Math.cos(theta);
+    const y = distance * Math.sin(theta);
+
+    return { x, y };
+}
+
+// Sample function to update celestial bodies' positions over time
+function updateCelestialBodiesPosition() {
+    const currentTime = new Date().getTime(); // Replace with actual time
+    sun.updatePosition(currentTime);
+    mercury.updatePosition(currentTime);
+    venus.updatePosition(currentTime);
+    earth.updatePosition(currentTime);
+    // createParticlesForBody(earth)
+    moon.updatePosition(currentTime);
+    mars.updatePosition(currentTime);
+    jupiter.updatePosition(currentTime);
+    saturn.updatePosition(currentTime);
+    uranus.updatePosition(currentTime);
+    neptune.updatePosition(currentTime);
+    pluto.updatePosition(currentTime);
+}
+
 // Sample orbital parameters (distance, orbital period, etc.) - Replace with actual values
 const earthOrbitalParameters = {
-    distance: 420,
+    distance: 1000,
     orbitalPeriod: 36500,
 };
 
 const moonOrbitalParameters = {
-    distance: earthOrbitalParameters.distance * 0.157, // Approximate distance ratio
+    distance: earthOrbitalParameters.distance * 0.09, // Approximate distance ratio
     orbitalPeriod: earthOrbitalParameters.orbitalPeriod / 2.3, // Approximate period ratio
 };
 
@@ -99,27 +136,27 @@ const marsOrbitalParameters = {
 };
 
 const jupiterOrbitalParameters = {
-    distance: earthOrbitalParameters.distance * 5.2, // Approximate distance ratio
+    distance: earthOrbitalParameters.distance * 2.2, // Approximate distance ratio
     orbitalPeriod: earthOrbitalParameters.orbitalPeriod * 11.86, // Approximate period ratio
 };
 
 const saturnOrbitalParameters = {
-    distance: earthOrbitalParameters.distance * 9.58, // Approximate distance ratio
+    distance: earthOrbitalParameters.distance * 2.58, // Approximate distance ratio
     orbitalPeriod: earthOrbitalParameters.orbitalPeriod * 29.5, // Approximate period ratio
 };
 
 const uranusOrbitalParameters = {
-    distance: earthOrbitalParameters.distance * 10.22, // Approximate distance ratio
+    distance: earthOrbitalParameters.distance * 3.22, // Approximate distance ratio
     orbitalPeriod: earthOrbitalParameters.orbitalPeriod * 84, // Approximate period ratio
 };
 
 const neptuneOrbitalParameters = {
-    distance: earthOrbitalParameters.distance * 13.05, // Approximate distance ratio
+    distance: earthOrbitalParameters.distance * 4.05, // Approximate distance ratio
     orbitalPeriod: earthOrbitalParameters.orbitalPeriod * 164.8, // Approximate period ratio
 };
 
 const plutoOrbitalParameters = {
-    distance: earthOrbitalParameters.distance * 19.48, // Approximate distance ratio
+    distance: earthOrbitalParameters.distance * 5.48, // Approximate distance ratio
     orbitalPeriod: earthOrbitalParameters.orbitalPeriod * 248.09, // Approximate period ratio
 };
 
@@ -146,43 +183,13 @@ const neptune = new CelestialBody(
     'NEPTUNE',
     neptuneOrbitalParameters
 );
-// const pluto = new CelestialBody(
-//     'pluto',
-//     'PLUTO',
-//     '#9e9e9e',
-//     2,
-//     plutoOrbitalParameters
-// );
-
-// Function to calculate new position based on orbital parameters and time
-function calculateNewPosition(time, orbitalParameters) {
-    const { distance, orbitalPeriod } = orbitalParameters;
-
-    // Convert time to radians based on the orbital period
-    const theta = (2 * Math.PI * time) / orbitalPeriod;
-
-    // Calculate x and y coordinates based on polar coordinates
-    const x = distance * Math.cos(theta);
-    const y = distance * Math.sin(theta);
-
-    return { x, y };
-}
-
-// Sample function to update celestial bodies' positions over time
-function updateCelestialBodiesPosition() {
-    const currentTime = new Date().getTime(); // Replace with actual time
-    sun.updatePosition(currentTime);
-    mercury.updatePosition(currentTime);
-    venus.updatePosition(currentTime);
-    earth.updatePosition(currentTime);
-    moon.updatePosition(currentTime);
-    mars.updatePosition(currentTime);
-    jupiter.updatePosition(currentTime);
-    saturn.updatePosition(currentTime);
-    uranus.updatePosition(currentTime);
-    neptune.updatePosition(currentTime);
-    // pluto.updatePosition(currentTime);
-}
+const pluto = new CelestialBody(
+    'pluto',
+    'PLUTO',
+    '#9e9e9e',
+    2,
+    plutoOrbitalParameters
+);
 
 // Update celestial bodies' positions periodically (e.g., every 10 milliseconds)
 setInterval(updateCelestialBodiesPosition, 10);
