@@ -5,9 +5,10 @@
     box-sizing: border-box;
 }
 
-/*   2. Remove default margin  */
+/*   2. Remove default margin and padding */
 * {
     margin: 0;
+    padding: 0;
 }
 
 /*  3. Add accessible line-height
@@ -21,10 +22,10 @@ body {
 img,
 picture,
 video,
-/* canvas, */
+canvas,
 svg {
     display: block;
-    max-width: 100%;
+    /* max-width: 100%; */
 }
 
 /*   6. Remove built-in form typography styles  */
