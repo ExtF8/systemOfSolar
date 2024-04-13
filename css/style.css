@@ -24,50 +24,42 @@
     /* Gray for Pluto */
 }
 
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     background-color: black;
     scroll-behavior: smooth;
 }
 
-#container {
+#outerSpaceContainer {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    align-items: center;
 
 }
 
+.system_container,
 #outerspace {
-    /* display: flex; */
-    position: absolute;
-    /* width: 100vw;*/
-    /* height: 100%; */
-    width: 100%;
-    /* top: 100%; */
-    /* left: 50%; */
-    z-index: -1;
+    position: fixed;
+    inset: 0;
+    width: max-content;
+    height: max-content;
+    margin: auto;
 }
 
-#cosmos {
-    position: absolute;
-    /* display: flex; */
-
+#system {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(1px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(1px, 1fr));
 
     place-items: center;
     vertical-align: middle;
-    /* align-self: center; */
-    top: 50%;
-    /* width: 100vw;*/
-    /* height: 500px; */
-    width: 100%;
-    /* height: 50vh; */
     background-color: transparent;
-    z-index: 1;
 }
 
 
@@ -75,9 +67,13 @@ body {
 /* Scaling factor of 1:10 (which means each celestial body will be approximately 1/10th the size of the Sun) */
 #sun {
     background-color: var(--sun-color);
-    border: none;
-    width: 200px;
-    height: 200px;
+    border: transparent;
+    width: 180px;
+    height: 180px;
+    /* box-shadow: 0 0 60px 0 rgba(206, 208, 1, 0.8),
+    inset -100px 10px 80px 20px #F1DA08,
+    0 0 40px 10px rgba(245, 223, 20, 0.54),
+    inset 0 0 10px 0 #FC4040; */
 }
 
 #mercury {
@@ -149,7 +145,7 @@ body {
     /* position: relative; */
     position: absolute;
     border-radius: 50%;
-    border: none;
+    border: transparent;
 
 }
 
